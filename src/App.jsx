@@ -1,9 +1,10 @@
 import "./App.scss";
 
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 
-import WarehousesPage from "./pages/Warehouse/Warehouse";
-import InventoryPage from "./pages/Inventory/Inventory";
+// Pages
+import Inventory from "./pages/Inventory/Inventory";
+import Warehouses from "./pages/Warehouses/Warehouses";
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Navigate to="/warehouses" />} />
-          <Route path="inventory" element={<InventoryPage />} />
-          <Route path="/warehouses" element={<WarehousesPage />} />
+          <Route path="/inventory" element={<Inventory />} />
+          <Route path="/warehouses" element={<Warehouses />} />
         </Routes>
       </BrowserRouter>
     </>
