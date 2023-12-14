@@ -4,25 +4,28 @@ import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import searchIcon from "../../assets/icons/search-24px.svg";
 
+import React, { useState, useEffect } from 'react';
+
+
 const InventoryList = () => {
   return (
-    <section className="inventory">
+    <section className="inventory container">
       <div className="inventory__nav">
         <h1 className="inventory__title">Inventory</h1>
         <div className="inventory__nav-search">
-          <div className="inventory__nav-input">
+          <div className="inventory__nav-search-container">
             <input
-              className="inventory__search-input"
+              className="inventory__nav-search-input"
               type="text"
               placeholder="Search..."
             />
               <img
-                className="inventory__search-icon"
+                className="inventory__nav-search-icon"
                 src={searchIcon}
                 alt="search-icon"
               />
           </div>
-          <button className="inventory__add-item-button">+ Add New Item</button>
+          <button className="inventory__nav-search-button">+ Add New Item</button>
         </div>
       </div>
 
@@ -96,6 +99,7 @@ const InventoryList = () => {
             />
           </li>
         </ul>
+      
       </div>
     </section>
   );
