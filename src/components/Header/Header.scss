@@ -1,0 +1,89 @@
+@use "../../styles/partials/_mixins" as *;
+@use "../../styles/partials/_colors";
+
+.header {
+  background-color: colors.$background-graphite;
+  display: flex;
+  flex-direction: column;
+  height: 12.75rem;
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  @include medium {
+    display: flex;
+    height: 11.625rem;
+    padding-top: 0;
+  }
+  @include large {
+    height: 11.625rem;
+    padding-top: 0;
+  }
+  &__logo {
+    display: flex;
+    justify-content: center;
+    @include medium {
+      margin-top: 2.4rem;
+    }
+  }
+  &__container {
+    padding: 0 1rem;
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 2rem;
+    }
+    @include large {
+      padding: 0 8.125rem;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+
+    @include medium {
+      margin-top: 2.4rem;
+      width: 13.813rem;
+    }
+  }
+  &__list-item {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    border-radius: 1.25rem; // Rounded corners for all list items
+    font-weight: bold;
+
+    &:first-child {
+      border-top-right-radius: 0; // Remove top-right border-radius for the first item
+      border-bottom-right-radius: 0; // Remove bottom-right border-radius for the first item
+    }
+
+    &:last-child {
+      border-top-left-radius: 0; // Remove top-left border-radius for the last item
+      border-bottom-left-radius: 0; // Remove bottom-left border-radius for the last item
+    }
+  }
+
+  &__list-item--active {
+    background-color: colors.$primary-instock-black;
+  }
+}
+
+.link {
+  color: colors.$primary-instock-indigo;
+  text-decoration: none;
+  font-size: 1rem;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+li,
+a {
+  text-decoration: none;
+  list-style-type: none;
+  color: colors.$primary-white;
+}
