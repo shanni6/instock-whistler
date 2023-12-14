@@ -10,16 +10,21 @@ function AddNewWarehouse() {
         >
           {field.labelText}
         </label>
-        <input id={field.inputId} type={field.inputType} />
+        <input
+          className="add-new-warehouse-form__input"
+          id={field.inputId}
+          placeholder={field.labelText}
+          type={field.inputType}
+        />
       </div>
     ));
   };
 
   const warehouseDetails = [
     {
-      inputId: "warehouse-details",
+      inputId: "warehouse-name",
       inputType: "text",
-      labelText: "Warehouse Details",
+      labelText: "Warehouse Name",
     },
     {
       inputId: "street-address",
@@ -72,15 +77,23 @@ function AddNewWarehouse() {
           {getFormFields(warehouseDetails)}
         </div>
 
-        <div className="add-new-warehouse-form__section">
+        <div className="add-new-warehouse-form__section add-new-warehouse-form__section--contact-details">
           <h2 className="add-new-warehouse-form__header">Contact Details</h2>
 
           {getFormFields(contactDetails)}
         </div>
 
-        <div className="add-new-warehouse-form__section">
-          <input type="button" value="Cancel" />
-          <input type="submit" value="Add Warehouse" />
+        <div className="add-new-warehouse-form__section add-new-warehouse-form__section--buttons">
+          <input
+            className="add-new-warehouse-form__button add-new-warehouse-form__button--secondary"
+            type="button"
+            value="Cancel"
+          />
+          <input
+            className="add-new-warehouse-form__button add-new-warehouse-form__button--primary"
+            type="submit"
+            value="Add Warehouse"
+          />
         </div>
       </form>
     </section>
