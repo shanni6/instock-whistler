@@ -3,12 +3,14 @@ import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
 import editIcon from "../../assets/icons/edit-24px.svg";
 import sortIcon from "../../assets/icons/sort-24px.svg";
 import searchIcon from "../../assets/icons/search-24px.svg";
+import InventoryListCard from "../InventoryListCard/InventoryListCard";
 
 import React, { useState, useEffect } from 'react';
 
 
 const InventoryList = () => {
   return (
+    <>
     <section className="inventory container">
       <div className="inventory__nav">
         <h1 className="inventory__title">Inventory</h1>
@@ -101,7 +103,14 @@ const InventoryList = () => {
         </ul>
       
       </div>
+
     </section>
+
+    <InventoryListCard/>
+    </>
+    
+
+    
   );
 };
 export default InventoryList;

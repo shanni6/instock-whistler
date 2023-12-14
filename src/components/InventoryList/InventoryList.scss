@@ -74,10 +74,15 @@ li {
     }
   }
 
+
+
+
+  &__container{
+    display: none;
+  }
+
   &__sort {
-    &-icon{
-        display: none;
-    }
+    
     @include large {
       display: flex;
       justify-content: space-between;

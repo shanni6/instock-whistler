@@ -1,4 +1,31 @@
-const InventoryListCard=()=>{
+import { Link } from "react-router-dom";
+import "./InventoryListCard.scss";
+import deleteIcon from "../../assets/icons/delete_outline-24px.svg";
+import editIcon from "../../assets/icons/edit-24px.svg";
+import ChevronRight from "../../assets/icons/chevron_right-24px.svg";
+
+  
+
+const InventoryListCard=(
+)=>{
+
+    const id = 1;
+const itemName = "Television";
+const category = "Electronics";
+const status = "In Stock";
+const quantity = 500;
+const warehouseName = "Manhattan";
+
+// Function to handle the inventory modal toggle
+const handleInventoryModalToggle = () => {
+  // Your implementation here
+  console.log("Inventory modal toggled");
+};
+
+// Example inventory name for modal
+const inventoryNameForModal = "Samsung TV";
+
+
     return (
         <>
       <li className="inventoryCard">
@@ -40,20 +67,20 @@ const InventoryListCard=()=>{
         <div className="inventoryCard__icons">
           <img
             className="inventoryCard__left-icon"
-            src={DeleteIcon}
+            src={deleteIcon}
             alt="delete icon"
           ></img>
           <Link to="/editItem">
             <img
               className="inventoryCard__left-icon"
-              src={EditIcon}
+              src={editIcon}
               alt="edit icon"
             ></img>
           </Link>
         </div>
       </li>
 
-      <li className="inventoryCardtableandDesktop__container">
+      {/* <li className="inventoryCardtableandDesktop__container">
         <div className="inventoryCardtableandDesktop__list">
           <h3 className="inventoryCardtableandDesktop__item">
             <Link className="Link__item" to={`/itemDetails/${id}`}>
@@ -79,19 +106,21 @@ const InventoryListCard=()=>{
                 handleInventoryModalToggle(id);
                 inventoryNameForModal(itemName);
               }}
-              src={DeleteIcon}
+              src={deleteIcon}
               alt="delete icon"
             ></img>
             <Link to="/editItem">
               <img
                 className="inventoryCardtableandDesktop__icon inventoryCardtableandDesktop__edit"
-                src={EditIcon}
+                src={editIcon}
                 alt="edit icon"
               ></img>
             </Link>
           </div>
         </div>
-      </li>
+      </li> */}
+
+      
     </>
     )
 }
