@@ -1,5 +1,8 @@
 import "./AddNewWarehouse.scss";
 
+import { Link } from "react-router-dom";
+import arrowBackIcon from "./../../assets/icons/arrow_back-24px.svg";
+
 function AddNewWarehouse() {
   const getFormFields = (fields) => {
     return fields.map((field) => (
@@ -68,7 +71,12 @@ function AddNewWarehouse() {
 
   return (
     <section className="add-new-warehouse">
-      <h1 className="add-new-warehouse__page-header">Add New Warehouse</h1>
+      <h1 className="add-new-warehouse__page-header">
+        <Link className="add-new-warehouse__page-header-icon">
+          <img src={arrowBackIcon} />
+        </Link>
+        Add New Warehouse
+      </h1>
 
       <form className="add-new-warehouse-form">
         <div className="add-new-warehouse-form__section">
@@ -92,7 +100,7 @@ function AddNewWarehouse() {
           <input
             className="add-new-warehouse-form__button add-new-warehouse-form__button--primary"
             type="submit"
-            value="Add Warehouse"
+            value="+ Add Warehouse"
           />
         </div>
       </form>

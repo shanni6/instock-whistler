@@ -6,8 +6,15 @@
   &__page-header {
     @extend .page-header;
 
+    align-items: end;
     border-bottom: $secondary-cloud 0.0625rem solid;
+    display: flex;
+    gap: $padding-2;
     padding: $padding-5 $padding-4 $padding-4;
+  }
+
+  &__page-header-icon {
+    margin-bottom: $padding-1;
   }
 }
 
