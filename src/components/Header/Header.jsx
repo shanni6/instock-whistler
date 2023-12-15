@@ -13,15 +13,22 @@ export default function Header() {
         <div className="header__list">
           <NavLink
             to="/warehouses"
-            className="header__list-item"
-            activeClassName="header__list-item--active"
+            className={({ isActive }) => {
+              return isActive
+                ? "header__list-item--active"
+                : "header__list-item";
+            }}
           >
             Warehouse
           </NavLink>
+
           <NavLink
             to="/inventory"
-            className="header__list-item"
-            activeClassName="header__list-item--active"
+            className={({ isActive }) => {
+              return isActive
+                ? "header__list-item--active"
+                : "header__list-item";
+            }}
           >
             Inventory
           </NavLink>
