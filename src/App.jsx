@@ -1,6 +1,6 @@
-import "./App.scss";
-
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import Footer from "./components/Footer/Footer.jsx";
 
 // Pages
 import Inventory from "./pages/Inventory/Inventory";
@@ -15,6 +15,7 @@ function App() {
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/warehouses" element={<Warehouses />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </>
   );
