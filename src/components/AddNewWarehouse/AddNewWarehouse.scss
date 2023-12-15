@@ -1,4 +1,5 @@
 @use "./../../styles/partials/colors" as *;
+@use "./../../styles/partials/mixins" as *;
 @use "./../../styles/partials/padding" as *;
 @use "./../../styles/partials/type-kit";
 
@@ -11,24 +12,55 @@
     display: flex;
     gap: $padding-2;
     padding: $padding-5 $padding-4 $padding-4;
+
+    @include medium {
+      align-items: center;
+      margin-bottom: $padding-4;
+    }
   }
 
   &__page-header-icon {
     margin-bottom: $padding-1;
+
+    @include medium {
+      margin-bottom: 0;
+    }
   }
 }
 
 .add-new-warehouse-form {
+  @include medium {
+    display: flex;
+
+    @include medium {
+      flex-wrap: wrap;
+    }
+  }
+
   &__section {
     display: flex;
     flex-direction: column;
     gap: $padding-3;
     padding: 0 $padding-4;
 
+    &--warehouse-details {
+      @include medium {
+        flex-grow: 1;
+      }
+    }
+
     &--contact-details {
       border-top: $secondary-cloud 1px solid;
       margin-top: $padding-4;
       padding-bottom: $padding-4;
+
+      @include medium {
+        border-left: $secondary-cloud 1px solid;
+        border-top: 0;
+        flex-grow: 1;
+        margin-top: 0;
+        padding-bottom: 0;
+      }
     }
 
     &--buttons {
@@ -36,6 +68,12 @@
       flex-direction: row;
       padding-bottom: $padding-3;
       padding-top: $padding-3;
+
+      @include medium {
+        justify-content: end;
+        flex-grow: 1;
+        margin-top: $padding-4;
+      }
     }
   }
 
@@ -43,6 +81,10 @@
     @extend .subheader;
 
     padding: $padding-3 0 $padding-2;
+
+    @include medium {
+      padding-top: 0;
+    }
   }
 
   &__field {
@@ -77,6 +119,11 @@
     height: 2.25rem;
     padding: 0 $padding-3;
     width: 100%;
+
+    @include medium {
+      flex-grow: 0;
+      width: auto;
+    }
 
     &--secondary {
       background-color: $primary-white;

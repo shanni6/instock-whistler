@@ -79,7 +79,7 @@ function AddNewWarehouse() {
       </h1>
 
       <form className="add-new-warehouse-form">
-        <div className="add-new-warehouse-form__section">
+        <div className="add-new-warehouse-form__section add-new-warehouse-form__section--warehouse-details">
           <h2 className="add-new-warehouse-form__header">Warehouse Details</h2>
 
           {getFormFields(warehouseDetails)}
