@@ -1,0 +1,112 @@
+@use "../../styles/partials/_colors" as *;
+@use "../../styles/partials/_mixins" as *;
+
+.warehouses {
+  &__item {
+    padding: 1rem 0;
+    border-bottom: 1.5px solid $secondary-cloud;
+    @include medium {
+      text-wrap: nowrap;
+      justify-content: space-between;
+      font-weight: normal;
+      flex-direction: row;
+
+      // @include flex-it(nowrap, space-between, normal, row);
+    }
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background-color: rgba(46, 102, 230, 0.07);
+    }
+  }
+
+  &__text-box {
+    text-wrap: nowrap;
+    justify-content: space-between;
+    font-weight: normal;
+    flex-direction: row;
+    @include medium {
+      width: 90%;
+    }
+  }
+
+  &__column {
+    text-wrap: wrap;
+    justify-content: flex-start;
+    font-weight: normal;
+    flex-direction: column;
+    width: 45%;
+    gap: 1rem;
+
+    @include medium {
+      text-wrap: nowrap;
+      justify-content: flex-start;
+      font-weight: normal;
+      flex-direction: row;
+      width: 50%;
+      gap: 0;
+    }
+  }
+
+  &__mobile-header {
+    display: block;
+    color: $secondary-slate;
+    text-transform: uppercase;
+
+    @include medium {
+      display: none;
+    }
+  }
+
+  &__content {
+    width: auto;
+    box-sizing: border-box;
+    &--short {
+      @include medium {
+        width: 42%;
+        padding-left: 1.7rem;
+      }
+    }
+    &--long {
+      @include medium {
+        width: 58%;
+      }
+    }
+  }
+
+  &__action {
+    text-wrap: nowrap;
+    justify-content: space-between;
+    font-weight: normal;
+    flex-direction: row;
+    @include medium {
+      display: inline-block;
+      width: 10%;
+    }
+  }
+
+  &__icon {
+    height: 1.8rem;
+    margin: 1rem 2rem 0 0;
+    @include medium {
+      margin: 1rem 0.6rem 0 0;
+    }
+    @include large {
+      margin: 1rem 2rem 0 0;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &__link {
+    margin: 0;
+    padding: 0;
+    width: 1.8rem;
+    display: inline-block;
+  }
+}
