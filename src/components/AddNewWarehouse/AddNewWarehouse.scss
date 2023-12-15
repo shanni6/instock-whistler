@@ -16,6 +16,13 @@
     @include medium {
       align-items: center;
       margin-bottom: $padding-4;
+      padding-left: $padding-5;
+      padding-right: $padding-5;
+    }
+
+    @include large {
+      padding-left: $padding-6;
+      padding-right: $padding-6;
     }
   }
 
@@ -43,9 +50,20 @@
     gap: $padding-3;
     padding: 0 $padding-4;
 
+    @include medium {
+      padding-left: $padding-5;
+      padding-right: $padding-5;
+    }
+
+    @include large {
+      padding-left: $padding-6;
+      padding-right: $padding-6;
+    }
+
     &--warehouse-details {
       @include medium {
         flex-grow: 1;
+        padding-bottom: $padding-2;
       }
     }
 
@@ -59,7 +77,7 @@
         border-top: 0;
         flex-grow: 1;
         margin-top: 0;
-        padding-bottom: 0;
+        padding-bottom: $padding-2;
       }
     }
 
@@ -71,8 +89,8 @@
 
       @include medium {
         justify-content: end;
-        flex-grow: 1;
         margin-top: $padding-4;
+        width: 100%;
       }
     }
   }
