@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 
 const InventoryList = () => {
   return (
+    
     <>
     <section className="inventory">
       <div className="inventory__nav">
@@ -79,10 +80,10 @@ const InventoryList = () => {
         </ul>
 {/* ---------------- */}
         <ul className="inventory__list">
-          <li className="inventory__list-li">Television &gt;</li>
+          <li className="inventory__list-li product">Television &gt;</li>
           <li className="inventory__list-li">Electronics </li>
           <li className="inventory__list-li inventory__list-stock">
-            in stock{" "}
+            in stock
           </li>
           <li className="inventory__list-li inventory__list-quantity">500 </li>
           <li className="inventory__list-li inventory__list-location">
