@@ -11,7 +11,7 @@ import React, { useState, useEffect } from 'react';
 const InventoryList = () => {
   return (
     <>
-    <section className="inventory container">
+    <section className="inventory">
       <div className="inventory__nav">
         <h1 className="inventory__title">Inventory</h1>
         <div className="inventory__nav-search">
@@ -77,7 +77,7 @@ const InventoryList = () => {
             <h4 className="inventory__sort-heading">actions</h4>
           </li>
         </ul>
-
+{/* ---------------- */}
         <ul className="inventory__list">
           <li className="inventory__list-li">Television &gt;</li>
           <li className="inventory__list-li">Electronics </li>

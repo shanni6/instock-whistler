@@ -18,6 +18,7 @@ li {
     box-shadow: 0px 2px 5px 0px rgba(19, 24, 44, 0.1);
     background-color: $primary-white;
     border-radius: 4px;
+    box-sizing: border-box;
    
 
   &__title {
@@ -32,15 +33,37 @@ li {
       align-items: center;
     }
 
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     &-search {
       @include large {
         display: flex;
-        justify-content: space-around;
         align-items: center;
+        width: 40vw;
+      }
+      @include medium {
+        display: flex;
+        align-items: center;
+        width: 50vw;
       }
 
       &-container {
         position: relative;
+
+        @include large {
+          width: 100%;
+          margin-right: 1rem;
+          margin-bottom: 0.4rem;
+        }
+        @include medium {
+          width: 70%;
+          margin-right: 1rem;
+          margin-bottom: 0.4rem;
+        }
       }
 
       &-input {
@@ -52,6 +75,14 @@ li {
 
         &::placeholder {
           padding-left: 1rem;
+        }
+
+        @include large {
+          width: 100%;
+        }
+
+        @include medium {
+          width: 100%;
         }
       }
 
@@ -70,23 +101,59 @@ li {
         padding: 0 1rem;
         color: $primary-white;
         margin-bottom: 1.5rem;
+
+        @include large {
+          max-width: 30%;
+        }
+
+        @include medium {
+          width: 40%;
+        }
       }
     }
   }
 
 
-
+//---------large and midum screen--------
 
   &__container{
     display: none;
+
+    @include large{
+      display: block;
+    }
+    @include medium{
+      display: block;
+    }
   }
 
   &__sort {
+    padding: 0.5rem 1.5rem;
+    background-color: $background-light-gray;
     
     @include large {
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+
+    @include medium {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-li{
+      @include large {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      @include medium {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
     }
   }
 
@@ -94,7 +161,18 @@ li {
     padding: 1rem 1.5rem;
     border-bottom: 1px solid $secondary-cloud;
     border-top: 1px solid $secondary-cloud;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-actions{
+      display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-
+    }
   }
+}
+
+.inventory__deleteIcon{
+  margin-right: 0.7rem;
 }
