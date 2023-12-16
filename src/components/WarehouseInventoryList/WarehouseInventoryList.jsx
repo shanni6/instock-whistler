@@ -8,13 +8,15 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
+//need a click param from warehouseList to get warehouseId
 const WarehouseInventoryList = () => {
-  const [inventoryList, setInventoryList] = useState([]);
+  const [warehouseIL, setwarehouseIL] = useState([]);
+  const warehouseId=3;//mockup
 
   const getList = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/api/inventories");
-      setInventoryList(response.data);
+      const response = await axios.get(`http://localhost:8080/api/warehouses/${warehouseId}`);
+      setwarehouseIL(response.data);
     } catch (error) {
       console.error("Error fetching inventory list:", error);
     }
@@ -66,9 +68,9 @@ const WarehouseInventoryList = () => {
             </li>
           </ul>
 
-          {inventoryList?.map((item) => (
+          {warehouseIL?.map((item) => (
             <ul className="inventory__list" key={item.id}>
-              <Link to={`xxxxxxxxxxxxxxxx`}>
+              <Link to={`../WarehouseDetails/WarehouseDetails/${warehouseId}`}>
                 <li className="inventory__list-li product">
                   {item.item_name} &gt;
                 </li>
@@ -105,7 +107,7 @@ const WarehouseInventoryList = () => {
         </div>
       </section>
 
-      <InventoryListCard inventoryList={inventoryList} />
+      <InventoryListCard inventoryList={warehouseIL} isFromWarehouseList={true} />
     </>
   );
 };

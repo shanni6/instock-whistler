@@ -97,6 +97,11 @@
       border-radius: 20px;
       align-items: center;
       padding: 0.25rem 0.5rem;
+
+      &.out-of-stock {
+        color: $supporting-red;
+        background-color: rgba(255, 0, 0, 0.07);
+      }
     }
   }
   
