@@ -1,8 +1,10 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Footer from "./components/Footer/Footer.jsx";
 
+// Components
+import Footer from "./components/Footer/Footer.jsx";
 import Header from "./components/Header/Header";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 // Pages
 import Inventory from "./pages/Inventory/Inventory";
@@ -17,6 +19,7 @@ function App() {
           <Route path="/" element={<Navigate to="/warehouses" />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/warehouses" element={<Warehouses />} />
+          <Route path="/warehouses/:id" element={<WarehouseDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>
