@@ -40,24 +40,26 @@ function Warehouses() {
                     className="warehouses-table__tr warehouses-table__tr--tbody"
                     key=""
                 >
-                    <div className="warehouses-table__td-container warehouses-table__td-container--warehouse-name">
-                        <td className="warehouses-table__td warehouses-table__td--warehouse-name">
+                    <td className="warehouses-table__td warehouses-table__td--warehouse-name">
+                        <div className="warehouses-table__td-container warehouses-table__td-container--warehouse-name">
                             {warehouseDetails.warehouseName}
-                        </td>
-                    </div>
-                    <div className="warehouses-table__td-container warehouses-table__td-container--address">
-                        <td className="warehouses-table__td  warehouses-table__td--address">{`${warehouseDetails.streetAddress}, ${warehouseDetails.city}, ${warehouseDetails.country}`}</td>
-                    </div>
-                    <div className="warehouses-table__td-container warehouses-table__td-container--contact-name">
-                        <td className="warehouses-table__td  warehouses-table__td--contact-name">
+                        </div>
+                    </td>
+                    <td className="warehouses-table__td  warehouses-table__td--address">
+                        <div className="warehouses-table__td-container warehouses-table__td-container--address">
+                            {`${warehouseDetails.streetAddress}, ${warehouseDetails.city}, ${warehouseDetails.country}`}
+                        </div>
+                    </td>
+                    <td className="warehouses-table__td  warehouses-table__td--contact-name">
+                        <div className="warehouses-table__td-container warehouses-table__td-container--contact-name">
                             {contactDetails.contactName}
-                        </td>
-                    </div>
-                    <div className="warehouses-table__td-container warehouses-table__td-container--contact-information">
-                        <td className="warehouses-table__td  warehouses-table__td--contact-information">
+                        </div>
+                    </td>
+                    <td className="warehouses-table__td  warehouses-table__td--contact-information">
+                        <div className="warehouses-table__td-container warehouses-table__td-container--contact-information">
                             {contactDetails.phone} {contactDetails.email}
-                        </td>
-                    </div>
+                        </div>
+                    </td>
                     <td className="warehouses-table__td  warehouses-table__td--actions">
                         <img src={deleteOutline} />
                         <img src={edit} />
@@ -80,17 +82,25 @@ function Warehouses() {
                     className="warehouses__button warehouses__button--primary"
                     to=""
                 >
-                    Add New Warehouse
+                    + Add New Warehouse
                 </button>
             </div>
             <table className="warehouses-table">
                 <thead className="warehouses-table__thead">
-                    <tr>
-                        <th>Warehouse</th>
-                        <th>Address</th>
-                        <th>Contact Name</th>
-                        <th>Contact Information</th>
-                        <th>Actions</th>
+                    <tr className="warehouses-table__tr warehouses-table__tr--thead">
+                        <th className="warehouses-table__th warehouses-table__th--sort">
+                            Warehouse
+                        </th>
+                        <th className="warehouses-table__th warehouses-table__th--sort">
+                            Address
+                        </th>
+                        <th className="warehouses-table__th warehouses-table__th--sort">
+                            Contact Name
+                        </th>
+                        <th className="warehouses-table__th warehouses-table__th--sort">
+                            Contact Information
+                        </th>
+                        <th className="warehouses-table__th">Actions</th>
                     </tr>
                 </thead>
                 <tbody>{tbodyRows}</tbody>
