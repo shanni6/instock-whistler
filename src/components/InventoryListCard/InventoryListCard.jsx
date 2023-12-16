@@ -44,7 +44,7 @@ const InventoryListCard=({inventoryList}
                 </div>
                 <div className="inventoryCard__left-category">
                   <p className="inventoryCard__categoryTitle">WAREHOUSE</p>
-                  <p className="inventoryCard__category">{item.warehouseName}</p>
+                  <p className="inventoryCard__category">{item.warehouse_name}</p>
                 </div>
               </div>
             </div>

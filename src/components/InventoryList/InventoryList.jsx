@@ -114,7 +114,7 @@ const InventoryList = () => {
               {item.quantity}
             </li>
             <li className="inventory__list-li inventory__list-location">
-              {item.warehouse_id}
+              {item.warehouse_name}
             </li>
             <li className="inventory__list-li inventory__list-actions">
               <img
@@ -129,9 +129,7 @@ const InventoryList = () => {
               />
             </li>
           </ul>
-
           ))
-
           }
           
         </div>
