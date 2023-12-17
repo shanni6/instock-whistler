@@ -101,6 +101,10 @@ function AddNewWarehouse() {
           element.classList.remove("add-new-warehouse-form__input--error");
         }
       }
+
+      if (isValidForm) {
+        // Submit Form
+      }
     }
   };
 
