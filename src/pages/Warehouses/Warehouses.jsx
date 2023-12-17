@@ -1,15 +1,8 @@
 import "./Warehouses.scss";
-import "./../../components/Warehouses/Warehouses";
 
-import { default as W } from "../../components/Warehouses/Warehouses";
+import Warehouses from "../../components/Warehouses/Warehouses";
+import EditInventory from "../../components/EditInventory/EditInventory";
 
-function Warehouses() {
-    return (
-        <div>
-            {/* <Warehouses /> */}
-            <W />
-        </div>
-    );
+export default function Warehouse() {
+    return <EditInventory/>
 }
-
-export default Warehouses;
