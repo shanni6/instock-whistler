@@ -124,6 +124,10 @@
     &:focus {
       border-color: $primary-instock-indigo;
     }
+
+    &--error {
+      border-color: $supporting-red;
+    }
   }
 
   &__button {

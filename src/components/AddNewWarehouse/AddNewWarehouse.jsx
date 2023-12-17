@@ -1,5 +1,7 @@
 import "./AddNewWarehouse.scss";
 
+import validator from "validator";
+
 import { Link } from "react-router-dom";
 import arrowBackIcon from "./../../assets/icons/arrow_back-24px.svg";
 
@@ -14,7 +16,7 @@ function AddNewWarehouse() {
           {field.labelText}
         </label>
         <input
-          className="add-new-warehouse-form__input"
+          className="add-new-warehouse-form__input add-new-warehouse-form__input"
           id={field.inputId}
           placeholder={field.labelText}
           type={field.inputType}
@@ -69,6 +71,39 @@ function AddNewWarehouse() {
     },
   ];
 
+  const handleAddWarehouse = (e) => {
+    e.preventDefault();
+
+    let isValidForm = true;
+
+    for (const element of e.target.elements) {
+      if (!element.value) {
+        element.classList.add("add-new-warehouse-form__input--error");
+        isValidForm = false;
+      } else {
+        element.classList.remove("add-new-warehouse-form__input--error");
+      }
+
+      if (element.type === "email") {
+        if (!validator.isEmail(element.value)) {
+          element.classList.add("add-new-warehouse-form__input--error");
+          isValidForm = false;
+        } else {
+          element.classList.remove("add-new-warehouse-form__input--error");
+        }
+      }
+
+      if (element.type === "tel") {
+        if (!validator.isMobilePhone(element.value)) {
+          element.classList.add("add-new-warehouse-form__input--error");
+          isValidForm = false;
+        } else {
+          element.classList.remove("add-new-warehouse-form__input--error");
+        }
+      }
+    }
+  };
+
   return (
     <section className="add-new-warehouse">
       <h1 className="add-new-warehouse__page-header">
@@ -78,7 +113,7 @@ function AddNewWarehouse() {
         Add New Warehouse
       </h1>
 
-      <form className="add-new-warehouse-form">
+      <form className="add-new-warehouse-form" onSubmit={handleAddWarehouse}>
         <div className="add-new-warehouse-form__section add-new-warehouse-form__section--warehouse-details">
           <h2 className="add-new-warehouse-form__header">Warehouse Details</h2>
 
