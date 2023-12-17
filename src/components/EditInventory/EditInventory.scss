@@ -42,7 +42,7 @@ h2 {
         top: $padding-1;
 
         @include medium {
-            margin-bottom: 0;
+            position: static;
         }
     }
 }
