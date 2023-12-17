@@ -1,11 +1,7 @@
 import "./Warehouses.scss";
 
-function Warehouses() {
-  return (
-    <>
-      <div>Warehouses</div>
-    </>
-  );
-}
+import Warehouses from "../../components/Warehouses/Warehouses";
 
-export default Warehouses;
+export default function Warehouse() {
+    return <Warehouses />;
+}
