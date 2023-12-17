@@ -14,14 +14,14 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Routes>
           <Route path="/" element={<Navigate to="/warehouses" />} />
           <Route path="/inventory" element={<Inventory />} />
           <Route path="/warehouses" element={<Warehouses />} />
           <Route path="/warehouses/:id" element={<WarehouseDetails />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </BrowserRouter>
     </>
   );
