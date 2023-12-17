@@ -3,6 +3,17 @@
 @use "./../../styles/partials/padding" as *;
 @use "./../../styles/partials/type-kit";
 
+input,
+select,
+textarea {
+    outline: 0;
+}
+
+h1,
+h2 {
+    margin: 0;
+}
+
 .edit-inventory {
     &__page-header {
         @extend .page-header;
@@ -27,7 +38,8 @@
     }
 
     &__page-header-icon {
-        margin-bottom: $padding-1;
+        position: relative;
+        top: $padding-1;
 
         @include medium {
             margin-bottom: 0;
@@ -115,7 +127,9 @@
         @extend .label;
     }
 
-    &__input {
+    &__input,
+    &__select,
+    &__textarea {
         border: $secondary-cloud 0.0625rem solid;
         border-radius: 1.25rem;
         height: 2.25rem;
@@ -128,6 +142,31 @@
         &--error {
             border-color: $supporting-red;
         }
+    }
+
+    &__select {
+        appearance: none;
+        background-image: url("./../../assets/icons/arrow_drop_down-24px.svg");
+        background-position: right $padding-3 center;
+        background-repeat: no-repeat;
+    }
+
+    &__textarea {
+        display: block;
+        font-family: "Titillium Web", sans-serif;
+        height: 7.5rem;
+        padding: $padding-2 $padding-3;
+        resize: none;
+    }
+
+    &__radio-container {
+        display: flex;
+    }
+
+    &__radio {
+        display: flex;
+        flex-grow: 1;
+        gap: $padding-1;
     }
 
     &__button {

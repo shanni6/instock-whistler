@@ -6,6 +6,64 @@ import { Link } from "react-router-dom";
 import arrowBackIcon from "./../../assets/icons/arrow_back-24px.svg";
 
 function EditInventory() {
+    const getFormField = (field) => {
+        if (field.elementType === "input" && field.inputType === "text") {
+            return (
+                <input
+                    className="edit-inventory-form__input"
+                    id={field.inputId}
+                    placeholder={field.labelText}
+                    type={field.inputType}
+                />
+            );
+        } else if (
+            field.elementType === "input" &&
+            field.inputType === "radio"
+        ) {
+            return (
+                <div className="edit-inventory-form__radio-container">
+                    {field.options.map((option) => {
+                        return (
+                            <div className="edit-inventory-form__radio" key="">
+                                <input
+                                    id={option.optionId}
+                                    name={field.inputId}
+                                    type="radio"
+                                />
+                                <label htmlFor={option.inputId}>
+                                    {option.labelText}
+                                </label>
+                            </div>
+                        );
+                    })}
+                </div>
+            );
+        } else if (field.elementType === "select") {
+            return (
+                <select
+                    className="edit-inventory-form__select"
+                    id={field.inputId}
+                    type={field.inputType}
+                >
+                    {field.options.map((option) => (
+                        <option key="" value={option}>
+                            {option}
+                        </option>
+                    ))}
+                </select>
+            );
+        } else if (field.elementType === "textarea") {
+            return (
+                <textarea
+                    className="edit-inventory-form__textarea"
+                    id={field.inputId}
+                    placeholder={field.labelText}
+                    type={field.inputType}
+                ></textarea>
+            );
+        }
+    };
+
     const getFormFields = (fields) => {
         return fields.map((field) => (
             <div className="edit-inventory-form__field" key={field.inputId}>
@@ -15,59 +73,47 @@ function EditInventory() {
                 >
                     {field.labelText}
                 </label>
-                <input
-                    className="edit-inventory-form__input edit-inventory-form__input"
-                    id={field.inputId}
-                    placeholder={field.labelText}
-                    type={field.inputType}
-                />
+                {getFormField(field)}
             </div>
         ));
     };
 
-    const warehouseDetails = [
+    const itemDetails = [
         {
-            inputId: "warehouse-name",
+            elementType: "input",
+            inputId: "item-name",
             inputType: "text",
-            labelText: "Warehouse Name",
+            labelText: "Item Name",
         },
         {
-            inputId: "street-address",
-            inputType: "text",
-            labelText: "Sreet Address",
+            elementType: "textarea",
+            inputId: "description",
+            labelText: "Description",
         },
         {
-            inputId: "city",
-            inputType: "text",
-            labelText: "City",
-        },
-        {
-            inputId: "country",
-            inputType: "text",
-            labelText: "Country",
+            elementType: "select",
+            inputId: "category",
+            labelText: "Category",
+            options: ["Electronics"],
         },
     ];
 
-    const contactDetails = [
+    const itemAvailability = [
         {
-            inputId: "contact-name",
-            inputType: "text",
-            labelText: "Contact Name",
+            elementType: "input",
+            inputId: "status",
+            inputType: "radio",
+            labelText: "Status",
+            options: [
+                { inputId: "in-stock", labelText: "In stock" },
+                { inputId: "out-of-stock", labelText: "Out of stock" },
+            ],
         },
         {
-            inputId: "position",
-            inputType: "text",
-            labelText: "Position",
-        },
-        {
-            inputId: "phone",
-            inputType: "tel",
-            labelText: "Phone",
-        },
-        {
-            inputId: "email",
-            inputType: "email",
-            labelText: "Email",
+            elementType: "select",
+            inputId: "warehouse",
+            labelText: "Warehouse",
+            options: ["Manhattan"],
         },
     ];
 
@@ -130,7 +176,7 @@ function EditInventory() {
                         Item Details
                     </h2>
 
-                    {getFormFields(warehouseDetails)}
+                    {getFormFields(itemDetails)}
                 </div>
 
                 <div className="edit-inventory-form__section edit-inventory-form__section--contact-details">
@@ -138,7 +184,7 @@ function EditInventory() {
                         Item Availability
                     </h2>
 
-                    {getFormFields(contactDetails)}
+                    {getFormFields(itemAvailability)}
                 </div>
 
                 <div className="edit-inventory-form__section edit-inventory-form__section--buttons">
