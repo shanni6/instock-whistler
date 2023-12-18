@@ -1,7 +1,7 @@
 import "./WarehouseDetails.scss";
-import { Link, useParams } from "react-router-dom";
 import edit from "../../assets/icons/edit-24px.svg";
 import back from "../../assets/icons/arrow_back-24px.svg";
+import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
