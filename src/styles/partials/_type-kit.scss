@@ -39,8 +39,10 @@ h3,
 
 h4,
 .table-header {
+  color: $secondary-slate;
   font-size: 0.6875rem;
   line-height: 16x;
+  text-transform: uppercase;
 
   @include medium {
     font-size: 0.75rem;
