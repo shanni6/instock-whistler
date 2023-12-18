@@ -1,7 +1,8 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
-import AddInventory from "./components/AddInventory/AddInventory";
 
+import AddInventory from "./components/AddInventory/AddInventory";
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
 import Footer from "./components/Footer/Footer.jsx";
 import Header from "./components/Header/Header";
 
@@ -10,21 +11,25 @@ import Inventory from "./pages/Inventory/Inventory";
 import Warehouses from "./pages/Warehouses/Warehouses";
 
 function App() {
-  return (
-    <>
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Navigate to="/warehouses" />} />
-          <Route path="/inventory" element={<Inventory />} />
-          <Route path="/inventory/add" element={<AddInventory />} />
+    return (
+        <>
+            <BrowserRouter>
+                {/* <Header /> */}
+                <Routes>
+                    <Route path="/" element={<Navigate to="/warehouses" />} />
+                    <Route path="/inventory" element={<Inventory />} />
+                    <Route
+                        path="/inventory/:id"
+                        element={<InventoryItemDetails />}
+                    />
+                    <Route path="/inventory/add" element={<AddInventory />} />
 
-          <Route path="/warehouses" element={<Warehouses />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
-    </>
-  );
+                    <Route path="/warehouses" element={<Warehouses />} />
+                </Routes>
+                {/* <Footer /> */}
+            </BrowserRouter>
+        </>
+    );
 }
 
 export default App;
