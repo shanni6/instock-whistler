@@ -1,74 +1,77 @@
 import "./WarehouseDetails.scss";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import edit from "../../assets/icons/edit-24px.svg";
 import back from "../../assets/icons/arrow_back-24px.svg";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-const mockdata = {
-  id: "2922c286-16cd-4d43-ab98-c79f698aeab0",
-  name: "Manhattan",
-  address: "503 Broadway",
-  city: "New York",
-  country: "USA",
-  contact: {
-    name: "Parmin Aujla",
-    position: "Warehouse Manager",
-    phone: "+1 (646) 123-1234",
-    email: "paujla@instock.com",
-  },
-};
+export default function WarehouseDetails() {
+  const { VITE_API_URL: apiUrl } = import.meta.env;
+  const params = useParams();
 
-export default function WarehouseDetails({ data = mockdata }) {
-  return (
-    <div className="warehouses">
-      <section className="warehouses__header">
-        <div className="warehouses__header-container">
-          <div className="warehouses__header-subcontainer">
-            <Link to={``}>
-              <img src={back} alt="back icon" className="warehouses__icons" />
+  const [warehouse, setWarehouse] = useState([]);
+
+  useEffect(() => {
+    const fetchWarehouse = async () => {
+      const { data } = await axios.get(`${apiUrl}/warehouses/${params.id}`);
+      setWarehouse(data);
+    };
+
+    fetchWarehouse();
+  }, []);
+
+  if (warehouse) {
+    return (
+      <div className="warehouses">
+        <section className="warehouses__header">
+          <div className="warehouses__header-container">
+            <div className="warehouses__header-subcontainer">
+              <Link to="/warehouses">
+                <img src={back} alt="back icon" className="warehouses__icons" />
+              </Link>
+              <h2 className="warehouses__header-text">
+                {warehouse.warehouse_name}
+              </h2>
+            </div>
+
+            <Link
+              to={`/warehouses/${warehouse.id}/edit`}
+              className="warehouses__header-bg"
+            >
+              <img
+                src={edit}
+                alt="edit icon"
+                className="warehouses__header__icons--edit"
+              />
+              <span className="warehouses__header-edit-text">Edit</span>
             </Link>
-            <h2 className="warehouses__header-text">{data.name}</h2>
           </div>
-
-          <Link to={``} className="warehouses__header-bg">
-            <img
-              src={edit}
-              alt="edit icon"
-              className="warehouses__header__icons--edit"
-            />
-            <span className="warehouses__header-edit-text">Edit</span>
-          </Link>
-        </div>
-      </section>
-      <section className="warehouses__info">
-        <div className="warehouses__info-address">
-          <h4 className="warehouses__info-subheaders">WAREHOUSE ADDRESS:</h4>
-          <p className="warehouses__info-text">
-            {data.address}, {data.city}, {data.country}
-          </p>
-        </div>
-        <div className="warehouses__info-contact">
-          <div className="warehouses__info-col--left">
-            <h4 className="warehouses__info-subheaders">CONTACT NAME:</h4>
+        </section>
+        <section className="warehouses__info">
+          <div className="warehouses__info-address">
+            <h4 className="warehouses__info-subheaders">WAREHOUSE ADDRESS:</h4>
             <p className="warehouses__info-text">
-              {data.contact && data.contact.name}
-            </p>
-            <p className="warehouses__info-text">
-              {data.contact && data.contact.position}
+              {warehouse.address}, {warehouse.city}, {warehouse.country}
             </p>
           </div>
-          <div className="warehouses__info-col--right">
-            <h4 className="warehouses__info-subheaders">
-              CONTACT INFORMATION:
-            </h4>
-            <p className="warehouses__info-text">
-              {data.contact && data.contact.phone}
-            </p>
-            <p className="warehouses__info-text">
-              {data.contact && data.contact.email}
-            </p>
+          <div className="warehouses__info-contact">
+            <div className="warehouses__info-col--left">
+              <h4 className="warehouses__info-subheaders">CONTACT NAME:</h4>
+              <p className="warehouses__info-text">{warehouse.contact_name}</p>
+              <p className="warehouses__info-text">
+                {warehouse.contact_position}
+              </p>
+            </div>
+            <div className="warehouses__info-col--right">
+              <h4 className="warehouses__info-subheaders">
+                CONTACT INFORMATION:
+              </h4>
+              <p className="warehouses__info-text">{warehouse.contact_phone}</p>
+              <p className="warehouses__info-text">{warehouse.contact_email}</p>
+            </div>
           </div>
-        </div>
-      </section>
-    </div>
-  );
+        </section>
+      </div>
+    );
+  }
 }

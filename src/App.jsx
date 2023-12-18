@@ -1,8 +1,12 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
 
-// import Footer from "./components/Footer/Footer.jsx";
+import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
+import Footer from "./components/Footer/Footer.jsx";
+import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
+import InventoryList from "./components/InventoryList/InventoryList";
 import Navigation from "./components/Navigation/Navigation";
+import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 import Warehouses from "./pages/Warehouses/Warehouses.jsx";
 
@@ -14,18 +18,19 @@ function App() {
         <main className="main">
           <Routes>
             <Route path="/" element={<Navigate to="/warehouses" />} />
-            {/* <Route path="/warehouses/add" element={} />
-            <Route path="/warehouses/:id" element={} />
-            <Route path="/warehouses/:id/edit" element={} />
-            <Route path="/warehouses/:id/delete" element={} />
+            <Route path="/warehouses" element={<Warehouses />} />
+            <Route path="/warehouses/:id" element={<WarehouseDetails />} />
+            <Route path="/warehouses/:id/edit" element={<EditWarehouse />} />
+            {/* <Route path="/warehouses/:id/delete" element={} /> */}
 
-            <Route path="/inventories/add" element={} />
-            <Route path="/inventories/:id" element={} />
-            <Route path="/inventories/:id/edit" element={} />
+            <Route path="/inventories" element={<InventoryList />} />
+            {/* <Route path="/inventories/add" element={} /> */}
+            <Route path="/inventories/:id" element={<InventoryItemDetails />} />
+            {/*<Route path="/inventories/:id/edit" element={} />
             <Route path="/inventories/:id/delete" element={} /> */}
           </Routes>
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </>
   );
