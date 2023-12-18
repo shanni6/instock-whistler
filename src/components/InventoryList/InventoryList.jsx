@@ -172,17 +172,21 @@ const InventoryList = () => {
                 {item.warehouse_name}
               </li>
               <li className="inventory__list-li inventory__list-actions">
-                <img
-                  src={deleteIcon}
-                  className="inventory__deleteIcon"
-                  alt="deleteIcon"
-                  onClick={() => setItemToDelete(item)}
-                />
-                <img
-                  src={editIcon}
-                  className="inventory__editIcon"
-                  alt="editIcon"
-                />
+                <Link to={`/inventories/${item.id}/delete`}>
+                  <img
+                    src={deleteIcon}
+                    className="inventory__deleteIcon"
+                    alt="deleteIcon"
+                    onClick={() => setItemToDelete(item)}
+                  />
+                </Link>
+                <Link to={`/inventories/${item.id}/edit`}>
+                  <img
+                    src={editIcon}
+                    className="inventory__editIcon"
+                    alt="editIcon"
+                  />
+                </Link>
               </li>
             </ul>
           ))}
