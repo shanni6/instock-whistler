@@ -5,6 +5,14 @@
 @import "../../styles/partials/colors";
 @import "../../styles/partials/padding";
 
+* {
+  color: black;
+}
+
+.inventory__list-li {
+  color: black;
+}
+
 .link-style {
   text-decoration: none;
 }
@@ -120,7 +128,7 @@ li {
     }
   }
 
-  //---------large and midum screen--------
+  //---------large and medium screen--------
 
   &__container {
     display: none;
@@ -161,7 +169,6 @@ li {
     align-items: center;
     margin-top: 0;
     margin-bottom: 0;
-    
 
     &-li {
       text-align: left;
@@ -202,12 +209,70 @@ li {
   }
 }
 
-
-
-.product{
+.product {
   width: 11.5rem;
 }
 
-.inventory__list-quantity,.inventory__list-location{
+.inventory__list-quantity,
+.inventory__list-location {
   text-align: center;
+}
+
+.inventory__delete-button {
+  font-family: "Titillium Web", sans-serif;
+  width: 7.5rem;
+  height: 1.875rem;
+  border-radius: 2rem;
+  border: none;
+  background-color: $supporting-red;
+  color: $primary-white;
+  transition: 0.2s;
+  @include medium {
+    width: 5rem;
+    &:hover {
+      background-color: $background-graphite;
+    }
+  }
+}
+
+.inventory__cancel-button {
+  font-family: "Titillium Web", sans-serif;
+  width: 7.5rem;
+  height: 1.875rem;
+  border-radius: 2rem;
+  border: 1px solid $secondary-slate;
+  background-color: $primary-white;
+  color: $primary-instock-black;
+  transition: 0.1s;
+  @include medium {
+    width: 5rem;
+    &:hover {
+      border: 1px solid $primary-instock-indigo;
+      color: $primary-instock-indigo;
+    }
+  }
+}
+
+.inventory__buttons-container {
+  display: flex;
+  justify-content: right;
+}
+
+.inventory__close-button {
+  color: $primary-instock-black;
+  font-size: 2.5rem;
+  font-weight: 100;
+  transition: 0.1s;
+  padding: 1rem 0;
+  height: fit-content;
+  &:hover {
+    color: $supporting-red;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  &:focus {
+    color: $supporting-red;
+    text-decoration: none;
+    cursor: pointer;
+  }
 }
