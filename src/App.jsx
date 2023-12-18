@@ -14,7 +14,15 @@ function App() {
         <main className="main">
           <Routes>
             <Route path="/" element={<Navigate to="/warehouses" />} />
-            <Route path="/warehouses" element={<Warehouses />} />
+            {/* <Route path="/warehouses/add" element={} />
+            <Route path="/warehouses/:id" element={} />
+            <Route path="/warehouses/:id/edit" element={} />
+            <Route path="/warehouses/:id/delete" element={} />
+
+            <Route path="/inventories/add" element={} />
+            <Route path="/inventories/:id" element={} />
+            <Route path="/inventories/:id/edit" element={} />
+            <Route path="/inventories/:id/delete" element={} /> */}
           </Routes>
         </main>
         {/* <Footer /> */}
