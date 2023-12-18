@@ -1,10 +1,9 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
+import AddInventory from "./components/AddInventory/AddInventory";
 
-// Components
 import Footer from "./components/Footer/Footer.jsx";
 import Header from "./components/Header/Header";
-import WarehouseDetails from "./components/WarehouseDetails/WarehouseDetails";
 
 // Pages
 import Inventory from "./pages/Inventory/Inventory";
@@ -14,14 +13,15 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Header /> */}
+        <Header />
         <Routes>
           <Route path="/" element={<Navigate to="/warehouses" />} />
           <Route path="/inventory" element={<Inventory />} />
+          <Route path="/inventory/add" element={<AddInventory />} />
+
           <Route path="/warehouses" element={<Warehouses />} />
-          <Route path="/warehouses/:id" element={<WarehouseDetails />} />
         </Routes>
-        {/* <Footer /> */}
+        <Footer />
       </BrowserRouter>
     </>
   );

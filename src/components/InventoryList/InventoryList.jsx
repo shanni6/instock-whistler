@@ -88,9 +88,13 @@ const InventoryList = () => {
                 alt="search-icon"
               />
             </div>
-            <button className="inventory__nav-search-button">
-              + Add New Item
-            </button>
+
+            {/*to do fix stylez*/}
+            <Link to="/inventory/add">
+              <button className="inventory__nav-search-button">
+                + Add New Item
+              </button>
+            </Link>
           </div>
         </div>
 
