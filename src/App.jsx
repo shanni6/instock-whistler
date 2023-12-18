@@ -1,6 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import "./App.scss";
 
+import EditInventory from "./components/EditInventory/EditInventory.jsx";
 import EditWarehouse from "./components/EditWarehouse/EditWarehouse.jsx";
 import Footer from "./components/Footer/Footer.jsx";
 import InventoryItemDetails from "./components/InventoryItemDetails/InventoryItemDetails";
@@ -26,8 +27,8 @@ function App() {
             <Route path="/inventories" element={<InventoryList />} />
             {/* <Route path="/inventories/add" element={} /> */}
             <Route path="/inventories/:id" element={<InventoryItemDetails />} />
-            {/*<Route path="/inventories/:id/edit" element={} />
-            <Route path="/inventories/:id/delete" element={} /> */}
+            <Route path="/inventories/:id/edit" element={<EditInventory />} />
+            {/*<Route path="/inventories/:id/delete" element={} /> */}
           </Routes>
         </main>
         <Footer />
