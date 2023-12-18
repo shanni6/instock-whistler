@@ -75,12 +75,23 @@ h2 {
         flex-wrap: wrap;
         row-gap: $padding-3;
         padding: $padding-3 $padding-4 $padding-4;
+
+        @include medium {
+            padding-left: $padding-5;
+            padding-right: $padding-5;
+        }
+
+        @include large {
+            padding-left: $padding-6;
+            padding-right: $padding-6;
+        }
     }
 
     &__sub-section {
         display: flex;
         flex-direction: column;
         gap: $padding-3;
+        width: 50%;
     }
 
     &__dl {
